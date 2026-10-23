@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b1018">
-<title>CHROMA — конструктор кольорових палітр</title>
-<meta name="description" content="Інтерактивний конструктор палітр: обирайте готові кольорові поєднання, змінюйте їх та дивіться результат на живому прикладі сайту.">
+<title>CHROMA — Premium Brand Preview Studio</title>
+<meta name="description" content="CHROMA — преміальний конструктор кольорових палітр: живий перегляд на канцелярії, сайті та вивісці, режими дня й ночі, порівняння палітр.">
 <style>
 :root {color-scheme:dark;--ui:#0c1119;--panel:#121924;--panel-2:#171f2c;--line:#29313f;--ink:#f3f6fb;--sub:#8e9bad;--brand:#a4f1d2;--shadow:0 28px 70px #03080e70}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--ui);color:var(--ink)}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid var(--brand);outline-offset:3px}button:disabled{cursor:not-allowed;opacity:.6}input{min-width:0}::selection{background:#87e9c5;color:#101820}
@@ -21,6 +21,7 @@
 @media (max-width:470px){.stage{min-height:475px}.site-hero{display:block}.site-hero h1{font-size:30px}.site-hero .hero-art{height:175px;transform:scale(.65);margin:-10px auto -20px}.site-nav{padding:0 14px}.site-section h2{font-size:14px}.feature-card{padding:10px 8px}.feature-card h3{font-size:9px}.feature-card p{font-size:8px}.feature-icon{width:23px;height:23px;font-size:12px}.feature-grid,.product-grid{gap:6px}.site-actions{margin-top:14px}.preview-frame.mobile{width:340px}.site-hero h1{font-size:28px}.stats-strip strong{font-size:15px}.shop-hero{grid-template-columns:1fr .75fr;gap:8px}.product-art{height:130px}.vase{transform:scale(.8) rotate(-12deg)}.shop-header h1{font-size:24px}.color-group .color-fields{grid-template-columns:1fr 1fr}.color-field{padding:7px;gap:6px}.color-well{width:24px;height:24px}.hex-input{font-size:10px}}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style>
+<link rel="stylesheet" href="assets/premium.css">
 </head>
 <body>
 <div class="app">
@@ -40,7 +41,7 @@
   </div>
  </aside>
  <main class="workspace">
-  <div class="workspace-top"><div><div class="workspace-title">Живий перегляд</div><div class="workspace-sub">Перемикай макети та перевіряй кольори на реальних елементах інтерфейсу</div></div><div class="workspace-controls"><div class="view-tabs" role="group" aria-label="Тип макета"><button class="active" type="button" data-view="landing" aria-pressed="true">Лендінг</button><button type="button" data-view="dashboard" aria-pressed="false">Дашборд</button><button type="button" data-view="shop" aria-pressed="false">Магазин</button></div><div class="device-tabs" role="group" aria-label="Розмір екрана"><button type="button" class="active" data-device="desktop" aria-label="Десктоп" title="Десктоп" aria-pressed="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8m-4-4v4"></path></svg></button><button type="button" data-device="mobile" aria-label="Телефон" title="Телефон" aria-pressed="false"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg></button></div></div></div>
+  <div class="workspace-top"><div><div class="workspace-title">Живий перегляд</div><div class="workspace-sub">Переглядай брендові носії: канцелярію, сайт, вивіску та порівняння</div></div><div class="workspace-controls"><div class="view-tabs" role="group" aria-label="Тип макета"><button class="active" type="button" data-view="landing" aria-pressed="true">Лендінг</button><button type="button" data-view="dashboard" aria-pressed="false">Дашборд</button><button type="button" data-view="shop" aria-pressed="false">Магазин</button></div><div class="device-tabs" role="group" aria-label="Розмір екрана"><button type="button" class="active" data-device="desktop" aria-label="Десктоп" title="Десктоп" aria-pressed="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8m-4-4v4"></path></svg></button><button type="button" data-device="mobile" aria-label="Телефон" title="Телефон" aria-pressed="false"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg></button></div></div></div>
   <div class="stage" id="stage"><div class="preview-frame" id="previewFrame"><div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url" id="browserUrl">preview.your-website.ua</span><span class="browser-end">↗</span></div>
    <div class="preview-site" id="livePreview">
     <div class="site-view active" data-site="landing"><nav class="site-nav"><div class="site-brand">nord<b>.</b></div><div class="site-nav-links"><span>Продукт</span><span>Можливості</span><span>Про нас</span></div><button class="site-button" type="button" data-demo>Почати зараз ↗</button></nav>
@@ -106,5 +107,6 @@ document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click'
 document.querySelectorAll('[data-demo]').forEach(b=>b.addEventListener('click',()=>announce('Це демо-інтерфейс. Колір кнопки керується обраною палітрою ✦')));
 restore();renderPresets();renderEditor();applyColors();
 </script>
+<script src="assets/premium.js"></script>
 </body>
 </html>
