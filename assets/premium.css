@@ -1,0 +1,154 @@
+/* CHROMA — Premium Brand Application Studio
+   Extension layer: existing palette editor, presets and legacy demos stay intact. */
+:root{--studio-gold:#e1b981;--studio-glass:rgba(255,255,255,.045)}
+.topbar{background:linear-gradient(120deg,#101a27,#101721 62%,#19212d);box-shadow:0 8px 34px #03070e50;position:relative;z-index:4}
+.logo-mark{box-shadow:0 7px 22px #a4f1d226}.brand-name{letter-spacing:2.7px}.header-middle{border:1px solid #2a4550;border-radius:99px;padding:8px 12px;background:#1b2930}
+.layout{grid-template-columns:288px minmax(0,1fr) 292px}
+.workspace{background:radial-gradient(ellipse at 80% 0,#25364890,transparent 45%),radial-gradient(ellipse at 5% 95%,#1b3330aa,transparent 50%),#0d141e}
+.workspace-top{align-items:flex-start;flex-wrap:wrap;border-bottom:1px solid #ffffff0c;padding:19px 24px}.workspace-title{font-size:17px}.workspace-sub{line-height:1.5;max-width:490px}
+.workspace-controls{flex-wrap:wrap;justify-content:flex-end}
+.view-tabs{max-width:100%;overflow-x:auto;scrollbar-width:none;padding:5px;border-radius:12px;background:#192330;box-shadow:inset 0 1px 5px #0004}
+.view-tabs::-webkit-scrollbar{display:none}.view-tabs button{padding:9px 12px;font-size:10px;transition:background .25s,color .25s,box-shadow .25s}
+.view-tabs button.active{background:#c5f8e1;color:#10251f;box-shadow:0 3px 18px #97ecc626}
+.view-tabs button[data-view="compare"]{color:#e8d3b8}
+.view-tabs button[data-view="compare"].active{color:#1c2421}
+#legacyDemoSelect{max-width:147px;min-height:34px;color:#b4c5d6;background:#192330;border:1px solid #354255;padding:6px 10px;border-radius:9px;font:700 11px 'DM Sans',system-ui,sans-serif;cursor:pointer}
+#legacyDemoSelect:focus-visible,#comparisonSelect:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.stage{background-image:radial-gradient(#ffffff0b 1px,transparent 1px);background-size:18px 18px;padding:26px}
+.preview-frame{max-width:1300px;background:#edf1ef;border:1px solid #ffffff22;box-shadow:0 20px 90px #000b,0 0 0 6px #ffffff08}
+.preview-frame.mobile{width:390px}
+.browser-bar{background:#e9edf0}
+.browser-url{font-weight:700;letter-spacing:.02em}
+.preview-site{min-height:600px}
+.scene-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:24px 29px 4px}.scene-head>div{min-width:0}
+.scene-eyebrow{font:800 9px 'DM Sans',Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:var(--site-primary)}
+.scene-title{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(24px,3vw,40px);letter-spacing:-1px;line-height:1.15;color:var(--site-text);margin:8px 0}
+.scene-description{font-size:10px;color:var(--site-muted);line-height:1.7;max-width:530px;margin:0}
+.scene-chip{border:1px solid var(--site-border);padding:7px 11px;border-radius:100px;font-size:9px;font-weight:800;color:var(--site-muted);white-space:nowrap}
+.preview-site .brand-scene{color:var(--site-text);background:var(--site-bg);min-height:580px}
+.brand-symbol{display:inline-grid;place-items:center;font-family:Georgia,'Times New Roman',serif;font-weight:700;line-height:1}
+.scene-footer{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:16px 29px 24px;border-top:1px solid var(--site-border);font-size:9px;color:var(--site-muted);letter-spacing:.04em}
+.scene-footer b{color:var(--site-text)}.scene-footer i{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle;margin-right:5px}
+.scene-footer .cta-link{margin-left:auto;color:var(--site-primary);font-weight:800;cursor:pointer;background:none;border:0;padding:0;font-size:10px}
+.application-overview{padding-bottom:15px}
+.overview-grid{padding:24px 28px 30px;display:grid;grid-template-columns:1.05fr .95fr;gap:15px}
+.overview-tile{min-height:235px;position:relative;overflow:hidden;border-radius:15px;padding:20px;border:1px solid var(--site-border);background:var(--site-surface);cursor:pointer;text-align:left;color:var(--site-text);transition:transform .25s,border-color .25s,box-shadow .25s}
+.overview-tile:hover{transform:translateY(-4px);border-color:var(--site-primary);box-shadow:0 18px 30px #0002}
+.overview-tile:focus-visible{outline:3px solid var(--site-accent);outline-offset:3px}
+.overview-tile:first-child{grid-row:span 2;min-height:485px}
+.tile-index{display:inline-block;border:1px solid var(--site-border);border-radius:99px;color:var(--site-muted);padding:5px 9px;font:800 9px 'DM Sans',sans-serif;letter-spacing:.1em}
+.tile-name{font:400 25px Georgia,serif;margin:12px 0 5px}
+.tile-description{color:var(--site-muted);font-size:10px;line-height:1.5;max-width:240px}
+.tile-arrow{position:absolute;bottom:17px;right:18px;font-size:19px;color:var(--site-primary)}
+.tile-paper-graphic{position:absolute;width:57%;height:49%;bottom:8%;left:21%;background:var(--site-bg);border:1px solid var(--site-border);box-shadow:14px 14px 0 var(--site-primary),0 20px 40px #0003;transform:rotate(-10deg);border-radius:3px;padding:20px}
+.tile-paper-graphic:before{content:'Н';color:var(--site-primary);font:700 65px Georgia,serif}
+.tile-paper-graphic:after{content:'';position:absolute;height:6px;width:49%;bottom:22%;left:20px;background:var(--site-accent);box-shadow:0 15px 0 var(--site-border),0 30px 0 var(--site-border)}
+.tile-site-graphic{height:76px;width:71%;position:absolute;right:13px;bottom:14px;border:1px solid var(--site-border);border-radius:8px;background:var(--site-bg);box-shadow:0 8px 20px #0002}
+.tile-site-graphic:before{content:'';display:block;height:17px;background:var(--site-primary);border-radius:7px 7px 0 0}
+.tile-site-graphic:after{content:'';position:absolute;height:23px;left:16px;right:45%;top:33px;border-radius:3px;background:var(--site-accent)}
+.tile-sign-graphic{position:absolute;right:15px;bottom:17px;width:74%;height:56px;background:var(--site-primary);display:grid;place-items:center;border-radius:3px;box-shadow:0 6px 23px #0005;font:700 17px Georgia,serif;letter-spacing:.07em;color:var(--button-text)}
+/* Stationery: simulated physical brand objects, all colored with palette CSS variables. */
+.stationery-stage{position:relative;min-height:440px;display:grid;place-items:center;overflow:hidden;margin:16px 28px 29px;border-radius:15px;background:radial-gradient(ellipse at 49% 42%,#ffffff20,transparent 48%),linear-gradient(145deg,#e2e0d8,#bebeb8 75%);isolation:isolate;perspective:950px}
+.stationery-stage:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 38px,#13201c07 39px,#13201c07 40px);pointer-events:none}
+.paper-stack{width:255px;height:355px;position:absolute;left:23%;top:10%;background:var(--site-bg);color:var(--site-text);padding:28px 25px;box-shadow:6px 13px 0 color-mix(in srgb,var(--site-primary) 22%,#ffffff),14px 24px 0 color-mix(in srgb,var(--site-border) 30%,#dddddd),15px 36px 35px #0004;transform:rotate(-11deg);border:1px solid var(--site-border);transition:background .3s}
+.paper-crest{font:700 48px Georgia,serif;color:var(--site-primary)}.paper-heading{font:700 11px 'DM Sans',sans-serif;margin-top:2px;letter-spacing:.12em}.paper-sub{font-size:8px;color:var(--site-muted);margin-top:4px}.paper-divider{height:5px;background:var(--site-primary);margin:18px 0}.paper-lines{display:grid;gap:9px;margin-top:26px}.paper-lines span{display:block;height:3px;background:var(--site-border);width:100%}.paper-lines span:nth-child(2){width:75%}.paper-lines span:nth-child(4){width:88%}.paper-lines span:nth-child(5){width:56%}.paper-lines span:nth-child(7){width:70%}
+.biz-card-scene{position:absolute;top:19%;left:55%;width:240px;height:145px;transform:rotate(12deg);border-radius:5px;padding:22px;background:var(--site-primary);color:var(--button-text);display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 21px 26px #0005;transition:background .3s}
+.biz-card-scene .brand-symbol{font-size:39px;align-self:flex-start;border:1px solid currentColor;width:47px;height:47px}.biz-card-scene strong{font:700 14px Georgia,serif;letter-spacing:.04em}.biz-card-scene small{display:block;font-size:7px;letter-spacing:.15em;margin-top:6px}
+.envelope-scene{position:absolute;left:49%;top:57%;width:295px;height:160px;background:var(--site-surface);border:1px solid var(--site-border);transform:rotate(-5deg);box-shadow:0 18px 26px #0004;border-radius:4px;overflow:hidden}
+.envelope-scene:before{content:'';position:absolute;inset:0;background:linear-gradient(156deg,transparent 49.7%,var(--site-border) 50%,transparent 50.5%),linear-gradient(24deg,transparent 49.7%,var(--site-border) 50%,transparent 50.5%);opacity:.8}
+.envelope-seal{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:38px;height:38px;background:var(--site-accent);border-radius:50%;box-shadow:0 3px 7px #0003;display:grid;place-items:center;color:var(--site-text);font:700 25px Georgia,serif}
+.stationery-label{position:absolute;bottom:16px;left:20px;background:#f7f5ed;border:1px solid #c7c8be;border-radius:6px;padding:8px 11px;font-size:9px;color:#24312e;font-weight:700}
+/* Website live application */
+.brand-web-frame{margin:18px 28px 29px;border:1px solid var(--site-border);border-radius:14px;overflow:hidden;box-shadow:0 20px 40px #0002;background:var(--site-surface)}
+.brand-web-nav{height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 27px;border-bottom:1px solid var(--site-border)}
+.brand-web-logo{font:700 20px Georgia,serif;display:flex;align-items:center;gap:10px;color:var(--site-text)}
+.brand-web-logo b{width:29px;height:29px;background:var(--site-primary);color:var(--button-text);display:grid;place-items:center;font-size:19px}
+.brand-web-links{display:flex;gap:19px;font-size:10px;color:var(--site-muted)}
+.brand-web-hero{display:grid;grid-template-columns:1.35fr .65fr;gap:18px;padding:42px 32px;align-items:center}
+.brand-web-tag{font-size:9px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--site-primary)}
+.brand-web-hero h2{font:400 clamp(29px,4vw,49px)/1.12 Georgia,serif;letter-spacing:-1.6px;max-width:570px;margin:16px 0}
+.brand-web-hero h2 em{color:var(--site-primary);font-style:italic}
+.brand-web-hero p{font:400 11px/1.8 'DM Sans',sans-serif;color:var(--site-muted);max-width:410px}
+.brand-web-btn{display:inline-flex;align-items:center;gap:9px;background:var(--site-primary);color:var(--button-text);border:0;border-radius:5px;padding:13px 18px;margin-top:19px;font-size:10px;font-weight:800}
+.brand-web-art{aspect-ratio:1;background:var(--site-bg);border:1px solid var(--site-border);border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 0 0 16px color-mix(in srgb,var(--site-primary) 7%,transparent);max-width:220px;margin:auto;width:100%}
+.brand-web-art:before{content:'Н';font:700 125px Georgia,serif;color:var(--site-primary)}
+.brand-web-art:after{content:'10–15 років досвіду';position:absolute;right:-20px;bottom:2%;background:var(--site-accent);color:var(--site-bg);padding:10px 11px;border-radius:5px;font-size:9px;font-weight:700;box-shadow:0 6px 19px #0003;white-space:nowrap}
+.brand-web-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:0 27px 31px}
+.brand-web-card{border:1px solid var(--site-border);background:var(--site-bg);border-radius:8px;padding:16px}
+.brand-web-card .number{font:700 11px 'DM Sans',sans-serif;color:var(--site-primary)}
+.brand-web-card strong{display:block;font-size:11px;margin:12px 0 7px;color:var(--site-text)}
+.brand-web-card small{font-size:9px;line-height:1.55;color:var(--site-muted)}
+/* Facade signage scene */
+.signage-toolbar{display:flex;align-items:center;gap:6px;margin-left:auto}
+.signage-toggle{font-size:10px;min-width:55px;border:1px solid var(--site-border);border-radius:7px;color:var(--site-text);background:var(--site-surface);padding:7px 10px}
+.signage-toggle[aria-pressed="true"]{background:var(--site-primary);color:var(--button-text)}
+.signage-stage{margin:18px 28px 28px;position:relative;min-height:430px;overflow:hidden;border-radius:14px;background:linear-gradient(#a8c5ce,#e8ece7 53%,#b6b0a5 53%,#aaa59d 100%);transition:background .4s;isolation:isolate}
+.signage-stage:before{content:'';position:absolute;left:-25%;right:-25%;bottom:0;height:18%;background:repeating-linear-gradient(90deg,#72756f20 0 40px,#fdfbf730 40px 42px),linear-gradient(#b5b3ac,#d0cdc2)}
+.signage-facade{position:absolute;left:9%;right:9%;top:12%;height:73%;background:repeating-linear-gradient(0deg,#ffffff0c 0 18px,#131b1917 19px 20px),#cac5b8;border:1px solid #9e9d94;box-shadow:0 24px 65px #0004}
+.signage-awning{position:absolute;top:3%;left:4%;right:4%;height:13px;background:#4d504d;box-shadow:0 8px 12px #0002}
+.signage-main{position:absolute;left:15%;right:15%;top:13%;height:90px;background:var(--site-primary);display:flex;justify-content:center;align-items:center;gap:15px;color:var(--button-text);box-shadow:0 9px 24px #0004;border:4px solid color-mix(in srgb,var(--site-primary) 75%,#000 25%);transition:background .3s}
+.signage-main .brand-symbol{font-size:42px;width:53px;height:53px;border:1px solid currentColor}
+.signage-main strong{font:700 clamp(19px,3vw,33px) Georgia,serif;letter-spacing:.04em;display:block}
+.signage-main span{font-size:8px;letter-spacing:.13em;text-transform:uppercase;display:block;margin-top:6px}
+.signage-glass{position:absolute;left:18%;right:18%;top:51%;bottom:0;background:linear-gradient(125deg,#8babb7d0,#314a52e3 55%,#a9bdc8b3);border:12px solid #4a4d49;box-shadow:inset 0 3px 23px #0007}
+.signage-glass:before{content:'';position:absolute;top:0;bottom:0;left:49.5%;width:8px;background:#525754}
+.signage-glass:after{content:'НАТАЛІЯ  ·  БУХГАЛТЕРСЬКИЙ СУПРОВІД';position:absolute;bottom:24px;left:10%;right:10%;color:#ffffffb0;font-size:8px;text-align:center;letter-spacing:.15em}
+.signage-side{position:absolute;top:29%;right:0;width:9%;height:38%;background:var(--site-surface);border:2px solid var(--site-primary);display:grid;place-items:center;box-shadow:0 8px 18px #0003}
+.signage-side span{font:700 30px Georgia,serif;color:var(--site-primary)}
+.signage-stage.night{background:linear-gradient(#172233,#263247 52%,#292d32 52%,#404447)}
+.signage-stage.night:after{content:'';position:absolute;inset:0;background:#0712224d;pointer-events:none;mix-blend-mode:multiply}
+.signage-stage.night .signage-main{box-shadow:0 0 8px 3px var(--site-accent),0 0 62px color-mix(in srgb,var(--site-accent) 66%,transparent),0 14px 24px #0008;z-index:2}
+.signage-stage.night .signage-main strong,.signage-stage.night .signage-main .brand-symbol{text-shadow:0 0 18px #ffffffaa}
+.signage-stage.night .signage-side{box-shadow:0 0 24px var(--site-accent)}
+/* Compare mode, two separate CSS variable contexts */
+.comparison-controls{padding:12px 27px 0;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.comparison-controls label{font-size:10px;font-weight:800;color:var(--site-muted)}
+#comparisonSelect{min-width:155px;padding:9px 12px;background:var(--site-surface);color:var(--site-text);border:1px solid var(--site-border);border-radius:7px;font-size:11px}
+.comparison-stage{padding:22px 27px 33px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.comparison-card{background:var(--site-bg);color:var(--site-text);border:1px solid var(--site-border);min-width:0;border-radius:11px;overflow:hidden}
+.comparison-card-head{padding:13px;border-bottom:1px solid var(--site-border)}
+.comparison-card-head strong{font-size:13px}.comparison-card-head small{display:block;color:var(--site-muted);font-size:9px;margin-top:5px}
+.compare-swatches{display:flex;gap:3px;margin-top:12px;height:13px}.compare-swatches span{flex:1;border-radius:2px}
+.compare-web{background:var(--site-surface);padding:15px;margin:12px;border-radius:5px;border:1px solid var(--site-border)}
+.compare-web-header{font:700 14px Georgia,serif;border-bottom:1px solid var(--site-border);padding-bottom:10px}
+.compare-web h3{font:400 24px/1.14 Georgia,serif;margin:15px 0 10px}.compare-web h3 em{color:var(--site-primary)}
+.compare-web p{font-size:9px;color:var(--site-muted);line-height:1.6}
+.compare-web-btn{display:inline-block;background:var(--site-primary);color:var(--button-text);padding:9px 12px;font-size:9px;font-weight:700;border-radius:3px;margin:5px 0 8px}
+.compare-materials{display:grid;grid-template-columns:.9fr 1.1fr;gap:7px;margin:0 12px 12px;height:90px}
+.compare-letter{position:relative;background:var(--site-bg);border:1px solid var(--site-border);box-shadow:3px 4px 6px #0002;padding:11px;font:700 26px Georgia,serif;color:var(--site-primary);transform:rotate(-3deg) scale(.92)}
+.compare-letter:after{content:'';display:block;background:var(--site-border);height:3px;width:65%;margin-top:8px;box-shadow:0 9px var(--site-border)}
+.compare-sign{background:linear-gradient(#8a9b9b,#606b70);display:flex;align-items:center;justify-content:center}
+.compare-sign span{background:var(--site-primary);color:var(--button-text);padding:11px 9px;font:700 11px Georgia,serif;letter-spacing:.08em;text-align:center;box-shadow:0 4px 14px #0006}
+/* Selected palette actions */
+#premiumActions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid #354255;padding:11px 20px;background:#141d28}
+#premiumActions button{flex-shrink:0}
+#approvedPaletteStatus{font-size:10px;color:#a3bbaf;line-height:1.5;margin-left:auto}
+.preset.selected{box-shadow:0 0 0 1px var(--brand),0 0 35px #a4f1d21f}
+.palette-trail{display:flex;align-items:center;gap:7px;font-size:10px;color:#8facbe;white-space:nowrap}
+.palette-trail strong{color:#e8f8f0}
+.scene-intro{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#91a6b8;font-weight:800}
+@media(max-width:1380px){.layout{grid-template-columns:253px minmax(0,1fr) 266px}.overview-grid{padding:19px}.stationery-stage{margin-inline:16px}.biz-card-scene{left:52%}.envelope-scene{left:46%}}
+@media(max-width:1140px){.layout{grid-template-columns:253px minmax(0,1fr)}.workspace-controls{justify-content:flex-start}.brand-web-art:after{right:-2px}.right-panel .color-group{border-left:1px solid var(--line)}}
+@media(max-width:760px){.layout{display:flex;flex-direction:column}.workspace-top{padding:15px 13px}.workspace-controls{width:100%}.view-tabs{width:100%;display:flex;overflow-x:auto}.view-tabs button{flex-shrink:0}.stage{padding:10px 12px 24px}.scene-head{padding:22px 17px 0}.overview-grid{grid-template-columns:1fr 1fr;gap:9px;padding:15px}.overview-tile{min-height:210px;padding:15px}.overview-tile:first-child{min-height:430px}.tile-name{font-size:20px}.tile-paper-graphic{height:35%;width:70%;left:15%;bottom:10%}.scene-footer{padding:12px 16px}.brand-web-frame,.signage-stage,.stationery-stage{margin:16px 12px 20px}.brand-web-hero{padding:24px 18px}.brand-web-hero h2{font-size:34px}.brand-web-links{gap:7px}.brand-web-nav{padding:0 16px}.brand-web-cards{padding:0 16px 20px}.paper-stack{left:12%}.biz-card-scene{left:47%;width:205px}.envelope-scene{left:41%;width:240px}.comparison-stage{padding:16px 12px;gap:8px}.comparison-controls{padding:12px}}
+@media(max-width:470px){.overview-grid{display:flex;flex-direction:column}.overview-tile,.overview-tile:first-child{min-height:155px}.tile-paper-graphic{width:28%;height:68%;left:auto;right:11%;bottom:14%}.tile-site-graphic{width:35%}.tile-sign-graphic{width:40%}.tile-description{max-width:52%}.stationery-stage{min-height:350px}.paper-stack{width:160px;height:250px;padding:17px;left:6%;top:13%}.paper-crest{font-size:34px}.paper-heading{font-size:8px}.biz-card-scene{left:46%;top:17%;width:165px;height:110px;padding:13px}.biz-card-scene .brand-symbol{font-size:27px;width:34px;height:34px}.biz-card-scene strong{font-size:11px}.envelope-scene{left:40%;top:59%;width:168px;height:100px}.signage-stage{min-height:320px}.signage-main{left:5%;right:5%;height:67px;gap:8px}.signage-main .brand-symbol{font-size:26px;width:36px;height:36px}.signage-main strong{font-size:19px}.signage-main span{font-size:6px}.brand-web-hero{grid-template-columns:1fr}.brand-web-art{display:none}.brand-web-hero h2{font-size:33px}.brand-web-nav{height:55px}.brand-web-links{display:none}.brand-web-cards{grid-template-columns:1fr}.comparison-stage{grid-template-columns:1fr}.scene-head .scene-chip{display:none}#premiumActions{padding:10px 13px}.scene-footer{gap:9px}}
+@media(prefers-reduced-motion:reduce){.overview-tile,.biz-card-scene,.paper-stack{transition:none!important;animation:none!important}}
+
+/* QA follow-ups: tablet widths and subtle scene entrance */
+@media(max-width:760px){
+ .left-panel{min-height:0}.workspace{min-height:0}
+ .right-panel{grid-column:auto}
+ .workspace-controls{justify-content:flex-start}
+ .preview-frame{width:100%;max-width:100%}
+ .stationery-stage,.signage-stage{max-width:100%}
+}
+@media(max-width:720px){.right-panel .sidebar-scroll{grid-template-columns:1fr}.left-panel .sidebar-scroll{overflow:visible}}
+@media(prefers-reduced-motion:no-preference){
+ .site-view.active .overview-tile{animation:studio-fade .45s ease both}
+ .site-view.active .overview-tile:nth-child(2){animation-delay:.07s}
+ .site-view.active .overview-tile:nth-child(3){animation-delay:.14s}
+ .site-view.active .paper-stack{animation:paper-enter .58s cubic-bezier(.2,.7,.3,1) both}
+ .site-view.active .biz-card-scene{animation:card-enter .55s cubic-bezier(.2,.7,.3,1) both}
+ @keyframes studio-fade{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
+ @keyframes paper-enter{from{opacity:0;translate:0 15px;rotate:-3deg}to{opacity:1;translate:0 0;rotate:0deg}}
+ @keyframes card-enter{from{opacity:0;translate:0 18px;rotate:5deg}to{opacity:1;translate:0 0;rotate:0deg}}
+}
