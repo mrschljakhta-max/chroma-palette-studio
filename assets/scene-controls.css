@@ -1,0 +1,12 @@
+/* Controls remain visible outside the scrollable stage. */
+#premiumUtilityBar{padding:9px 22px;background:#172230;border-block:1px solid #354255;flex:0 0 auto}
+#premiumUtilityBar[hidden],.premium-utility-inner[hidden]{display:none!important}
+.premium-utility-inner{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.premium-tools-label{font:800 10px 'DM Sans',system-ui,sans-serif;letter-spacing:.14em;color:#b7c4d1}
+.premium-tools-note{margin-left:auto;font-size:10px;color:#879dae}
+.premium-switch{display:flex;gap:3px;padding:3px;background:#0c131d;border:1px solid #344459;border-radius:10px}
+.premium-switch button{background:transparent;color:#aebed0;border:0;border-radius:7px;padding:8px 15px;font-size:11px;font-weight:800;transition:.2s}
+.premium-switch button[aria-pressed="true"]{background:#c5f8e1;color:#10241e;box-shadow:0 3px 12px #0004}
+#compareTopSelect{min-width:185px;background:#0e1723;border:1px solid #3c4d61;border-radius:9px;padding:9px 12px;color:#f1f7fb;font:700 11px 'DM Sans',system-ui,sans-serif}
+#compareTopSelect:focus-visible,.premium-switch button:focus-visible{outline:2px solid #a4f1d2;outline-offset:2px}
+@media(max-width:760px){#premiumUtilityBar{padding:10px 13px}.premium-utility-inner{gap:8px}.premium-tools-label{flex:1 1 100%}.premium-tools-note{display:none}#compareTopSelect{min-width:0;flex:1}.premium-utility-inner .btn{padding:9px;font-size:10px}}
