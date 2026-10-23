@@ -132,3 +132,23 @@
 @media(max-width:760px){.layout{display:flex;flex-direction:column}.workspace-top{padding:15px 13px}.workspace-controls{width:100%}.view-tabs{width:100%;display:flex;overflow-x:auto}.view-tabs button{flex-shrink:0}.stage{padding:10px 12px 24px}.scene-head{padding:22px 17px 0}.overview-grid{grid-template-columns:1fr 1fr;gap:9px;padding:15px}.overview-tile{min-height:210px;padding:15px}.overview-tile:first-child{min-height:430px}.tile-name{font-size:20px}.tile-paper-graphic{height:35%;width:70%;left:15%;bottom:10%}.scene-footer{padding:12px 16px}.brand-web-frame,.signage-stage,.stationery-stage{margin:16px 12px 20px}.brand-web-hero{padding:24px 18px}.brand-web-hero h2{font-size:34px}.brand-web-links{gap:7px}.brand-web-nav{padding:0 16px}.brand-web-cards{padding:0 16px 20px}.paper-stack{left:12%}.biz-card-scene{left:47%;width:205px}.envelope-scene{left:41%;width:240px}.comparison-stage{padding:16px 12px;gap:8px}.comparison-controls{padding:12px}}
 @media(max-width:470px){.overview-grid{display:flex;flex-direction:column}.overview-tile,.overview-tile:first-child{min-height:155px}.tile-paper-graphic{width:28%;height:68%;left:auto;right:11%;bottom:14%}.tile-site-graphic{width:35%}.tile-sign-graphic{width:40%}.tile-description{max-width:52%}.stationery-stage{min-height:350px}.paper-stack{width:160px;height:250px;padding:17px;left:6%;top:13%}.paper-crest{font-size:34px}.paper-heading{font-size:8px}.biz-card-scene{left:46%;top:17%;width:165px;height:110px;padding:13px}.biz-card-scene .brand-symbol{font-size:27px;width:34px;height:34px}.biz-card-scene strong{font-size:11px}.envelope-scene{left:40%;top:59%;width:168px;height:100px}.signage-stage{min-height:320px}.signage-main{left:5%;right:5%;height:67px;gap:8px}.signage-main .brand-symbol{font-size:26px;width:36px;height:36px}.signage-main strong{font-size:19px}.signage-main span{font-size:6px}.brand-web-hero{grid-template-columns:1fr}.brand-web-art{display:none}.brand-web-hero h2{font-size:33px}.brand-web-nav{height:55px}.brand-web-links{display:none}.brand-web-cards{grid-template-columns:1fr}.comparison-stage{grid-template-columns:1fr}.scene-head .scene-chip{display:none}#premiumActions{padding:10px 13px}.scene-footer{gap:9px}}
 @media(prefers-reduced-motion:reduce){.overview-tile,.biz-card-scene,.paper-stack{transition:none!important;animation:none!important}}
+
+/* QA follow-ups: tablet widths and subtle scene entrance */
+@media(max-width:760px){
+ .left-panel{min-height:0}.workspace{min-height:0}
+ .right-panel{grid-column:auto}
+ .workspace-controls{justify-content:flex-start}
+ .preview-frame{width:100%;max-width:100%}
+ .stationery-stage,.signage-stage{max-width:100%}
+}
+@media(max-width:720px){.right-panel .sidebar-scroll{grid-template-columns:1fr}.left-panel .sidebar-scroll{overflow:visible}}
+@media(prefers-reduced-motion:no-preference){
+ .site-view.active .overview-tile{animation:studio-fade .45s ease both}
+ .site-view.active .overview-tile:nth-child(2){animation-delay:.07s}
+ .site-view.active .overview-tile:nth-child(3){animation-delay:.14s}
+ .site-view.active .paper-stack{animation:paper-enter .58s cubic-bezier(.2,.7,.3,1) both}
+ .site-view.active .biz-card-scene{animation:card-enter .55s cubic-bezier(.2,.7,.3,1) both}
+ @keyframes studio-fade{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
+ @keyframes paper-enter{from{opacity:0;translate:0 15px;rotate:-3deg}to{opacity:1;translate:0 0;rotate:0deg}}
+ @keyframes card-enter{from{opacity:0;translate:0 18px;rotate:5deg}to{opacity:1;translate:0 0;rotate:0deg}}
+}
