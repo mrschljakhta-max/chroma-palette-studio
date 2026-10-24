@@ -107,7 +107,7 @@ filter:saturate(1.2);animation:blob 14s ease-in-out infinite;will-change:transfo
 .preset{border:1px solid #ffffff1a;background:#1b1b1e;border-radius:19px;padding:11px;box-shadow:none;transition:transform .35s cubic-bezier(.2,.8,.1,1),border-color .3s,box-shadow .3s;overflow:hidden}
 .preset:hover{transform:translateY(-9px);border-color:#ffffff5c;box-shadow:0 24px 60px #0008}
 .preset.selected{border-color:var(--m-primary);box-shadow:0 0 0 1px var(--m-primary),0 24px 60px #0007}
-.preset-preview{height:clamp(165px,19vw,270px);border-radius:12px;display:block;overflow:hidden;isolation:isolate;background-image:radial-gradient(circle at 55% 42%,var(--pp),transparent 48%)!important;position:relative}
+.preset-preview{height:clamp(165px,19vw,270px);border-radius:12px;display:block;overflow:hidden;isolation:isolate;background-image:radial-gradient(circle at 55% 42%,var(--pp),transparent 48%);position:relative}
 .preset-preview::before{content:'';position:absolute;left:15%;top:13%;bottom:auto;width:72%;height:72%;border-radius:40% 60% 58% 42% / 46% 57% 43% 54%;background:conic-gradient(from 50deg,var(--pp),var(--ps),transparent,var(--pp),var(--ps));box-shadow:inset 12px 15px 30px #ffffff38,inset -12px -18px 25px #0006,0 30px 50px #0004;transform:rotate(-16deg);animation:none;z-index:0}
 .preset-preview::after{content:'';position:absolute;width:72%;height:72%;left:17%;bottom:-33%;border-radius:50%;background:var(--ps);opacity:.6;filter:blur(30px);box-shadow:none;z-index:-1}
 .preset-preview .preview-sun{right:16px;top:14px;font-size:20px;opacity:.9;color:#fff!important}
@@ -306,3 +306,22 @@ body.drawer-open .editor-backdrop{opacity:1;visibility:visible;pointer-events:au
  .layout>.right-panel .sidebar-scroll{display:block!important;overflow-y:auto!important}
 }
 @media(prefers-reduced-motion:reduce){.color-orb,.orb-small,.orbit-track,.art-card,.hero-micro .pulse{animation:none!important}.reveal{opacity:1;transform:none;transition:none}}
+
+/* Keep the existing editorial gallery as an optional scene, not as a fullscreen app reset. */
+.app.gallery-mode .layout{display:flex!important;flex-direction:column!important;max-height:none!important;min-height:0}
+.app.gallery-mode .layout>.left-panel{display:block!important}
+.app.gallery-mode .layout>.right-panel{display:flex!important}
+.app.gallery-mode .workspace{min-height:0;height:auto;max-height:none;overflow:visible;padding:0 clamp(20px,6.6vw,120px) 120px;background:#151416}
+.app.gallery-mode .workspace-top{padding:11px 0 24px;background:transparent;border-bottom:none}
+.app.gallery-mode .stage{display:flex;justify-content:center;max-height:none;overflow:visible}
+.app.gallery-mode .preview-frame{width:100%!important;max-width:1500px;border-radius:21px!important}
+.app.gallery-mode .browser-bar{display:flex}
+.app.gallery-mode .preview-site{min-height:640px}
+.app.gallery-mode .chroma-gallery{padding:50px clamp(16px,3vw,42px);border-radius:20px}
+.app.gallery-mode .device-tabs{display:flex!important}
+.app.gallery-mode .view-tabs button[data-view="gallery"].active{background:var(--m-primary);color:#09090b}
+@media(max-width:580px){
+ .app.gallery-mode .workspace{padding:0 13px 90px}
+ .app.gallery-mode .chroma-gallery{padding:32px 12px}
+ .app.gallery-mode .preview-frame{border-radius:14px!important}
+}
