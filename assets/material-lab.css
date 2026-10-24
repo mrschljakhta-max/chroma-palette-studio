@@ -1,0 +1,238 @@
+/* CHROMA / Material Lab v4 — cinematic, CSS-rendered print and architectural materials.
+   Palette colors always flow from the existing --site-* custom properties. */
+
+/* Controls for camera and façade finishes */
+.material-lab-tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:13px 28px 1px}
+.material-lab-tools .material-label{font:800 9px/1.4 'DM Sans',system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--site-muted);margin-right:3px}
+.material-segment{display:flex;align-items:center;gap:3px;background:var(--site-surface);border:1px solid var(--site-border);border-radius:10px;padding:3px}
+.material-segment button{color:var(--site-muted);border:0;background:transparent;padding:8px 12px;border-radius:7px;font-size:10px;font-weight:800;white-space:nowrap;transition:background .25s,color .25s}
+.material-segment button[aria-pressed="true"]{background:var(--site-primary);color:var(--button-text);box-shadow:0 5px 15px #0002}
+.material-segment button:focus-visible{outline:2px solid var(--site-accent);outline-offset:3px}
+.material-hint{margin-left:auto;color:var(--site-muted);font-size:9px;line-height:1.5}
+.material-lab-note{font-size:10px;color:var(--site-muted);line-height:1.7;margin:0 28px 22px}
+.material-lab-note strong{color:var(--site-text)}
+
+/* STATIONERY — textured board, three-dimensional paper, ribbon, printing, metallic tools */
+.stationery-stage.studio-3d{
+  --paper-x:0px;--paper-y:0px;--card-x:0px;--card-y:0px;--envelope-x:0px;--envelope-y:0px;
+  margin-top:15px;margin-bottom:15px;min-height:520px;border-radius:17px;
+  background:
+    radial-gradient(ellipse at 73% 20%,#fffcf6a6 0,transparent 43%),
+    radial-gradient(ellipse at 28% 85%,#777e7934 0,transparent 47%),
+    repeating-linear-gradient(92deg,#ffffff09 0 1px,transparent 1px 5px),
+    linear-gradient(140deg,#d8d6cf 0%,#c4c2bb 47%,#a6aaa6 100%);
+  box-shadow:inset 0 1px 2px #fff9,inset 0 -15px 55px #414c482a,0 25px 65px #0002;
+  perspective:900px;transform-style:preserve-3d;overflow:hidden;isolation:isolate
+}
+.stationery-stage.studio-3d:before{content:'';background:
+ linear-gradient(116deg,#ffffff1c 10%,transparent 25%,transparent 70%,#2930291c 100%),
+ repeating-linear-gradient(92deg,transparent 0 3px,#373e3107 3px 4px);
+ opacity:1;z-index:0}
+.stationery-stage .studio-desk-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 45% 30%,#fff8,transparent 48%);mix-blend-mode:screen;z-index:0}
+.stationery-stage .studio-shadow{position:absolute;width:70%;height:31%;left:14%;top:60%;border-radius:100%;background:#1b231f65;filter:blur(38px);transform:rotate(-12deg);z-index:0;pointer-events:none}
+.stationery-stage .paper-stack{
+ left:21%;top:9%;width:255px;height:360px;padding:26px 27px;
+ border-radius:2px 3px 3px 2px;z-index:3;
+ color:var(--site-text);background:
+ repeating-linear-gradient(15deg,transparent 0 5px,#77777707 5px 6px),
+ linear-gradient(135deg,#ffffff28,transparent 28%),
+ var(--site-bg);
+ border:1px solid color-mix(in srgb,var(--site-border) 75%,#ffffff);
+ box-shadow:1px 1px 0 #ffffffb0,5px 4px 0 color-mix(in srgb,var(--site-primary) 30%,#ddd),
+ 10px 9px 0 color-mix(in srgb,var(--site-border) 40%,#fafafa),12px 19px 30px #20272257,25px 37px 45px #19201a3c;
+ transform:translate3d(var(--paper-x),var(--paper-y),10px) rotate(-10deg) rotateX(5deg);
+ transform-origin:50% 50%;
+ transition:transform .55s cubic-bezier(.18,.6,.2,1),background .35s,box-shadow .35s
+}
+.stationery-stage .paper-stack:before{content:'Н';position:absolute;left:32%;top:31%;font:700 135px Georgia,serif;color:var(--site-primary);opacity:.065;transform:rotate(-10deg);pointer-events:none}
+.stationery-stage .paper-stack:after{content:'';position:absolute;inset:5px;border:1px solid color-mix(in srgb,var(--site-primary) 11%,transparent);pointer-events:none}
+.stationery-stage .paper-crest{font-size:39px;color:var(--site-primary);position:relative;z-index:1;line-height:1}
+.stationery-stage .paper-heading{font-size:10px;letter-spacing:.17em;margin-top:7px}
+.stationery-stage .paper-sub{font-size:7.5px;letter-spacing:.02em;line-height:1.35}
+.stationery-stage .paper-divider{height:3px;margin:13px 0 15px;background:var(--site-primary);box-shadow:0 1px 0 #ffffff66}
+.stationery-stage .paper-lines{margin-top:19px;gap:8px}
+.stationery-stage .paper-lines span{height:2.5px;border-radius:5px;background:color-mix(in srgb,var(--site-muted) 38%,transparent)}
+.stationery-stage .letter-detail{position:absolute;bottom:28px;left:27px;right:25px;border-top:1px solid var(--site-border);padding-top:11px;font:700 6.5px 'DM Sans',system-ui,sans-serif;letter-spacing:.04em;color:var(--site-muted);display:flex;justify-content:space-between;gap:8px}
+.stationery-stage .letter-stamp{position:absolute;bottom:63px;right:24px;font:italic 10px Georgia,serif;color:var(--site-primary);opacity:.72;transform:rotate(-8deg)}
+.stationery-stage .biz-card-scene{top:16%;left:57%;width:230px;height:143px;z-index:6;display:flex;flex-direction:column;justify-content:space-between;
+ padding:22px;border-radius:4px;
+ background:linear-gradient(132deg,#ffffff2c,transparent 27%,#00000019 69%,#ffffff1f),var(--site-primary);
+ border:1px solid #ffffff41;
+ transform:translate3d(var(--card-x),var(--card-y),35px) rotate(11deg) rotateY(-8deg);
+ box-shadow:1px 1px 0 #ffffff55,0 3px 0 color-mix(in srgb,var(--site-primary) 65%,#141414),8px 22px 24px #0005,13px 30px 35px #0003;
+ transition:transform .55s cubic-bezier(.18,.6,.2,1),background .35s
+}
+.stationery-stage .biz-card-scene:before{content:'';position:absolute;inset:5px;border:1px solid #ffffff4a;opacity:.48;pointer-events:none}
+.stationery-stage .biz-card-scene:after{content:'';position:absolute;width:80%;height:100%;top:-7%;left:-85%;transform:rotate(23deg);background:linear-gradient(90deg,transparent,#ffffff38 40%,transparent);pointer-events:none;opacity:.36}
+.stationery-stage .biz-card-scene .brand-symbol{border:1px solid currentColor;font-size:34px;width:43px;height:43px}
+.stationery-stage .biz-card-scene strong{font-size:15px}
+.stationery-stage .biz-card-scene small{font-size:7px;letter-spacing:.17em}
+.stationery-stage .card-foil{position:absolute;right:16px;top:17px;font-size:9px;letter-spacing:.1em;opacity:.65}
+.stationery-stage .envelope-scene{left:50%;top:56%;width:286px;height:165px;z-index:5;
+ border-radius:3px;background:
+ linear-gradient(160deg,#ffffff57,transparent 42%),
+ var(--site-surface);
+ transform:translate3d(var(--envelope-x),var(--envelope-y),20px) rotate(-6deg) rotateX(5deg);
+ border:1px solid color-mix(in srgb,var(--site-border) 85%,#ffffff);
+ box-shadow:0 2px 0 color-mix(in srgb,var(--site-border) 80%,#fff),8px 17px 28px #232c2766,15px 27px 44px #1420193b;
+ transition:transform .55s cubic-bezier(.18,.6,.2,1),background .35s
+}
+.stationery-stage .envelope-scene:before{background:
+ linear-gradient(156deg,transparent 49.6%,color-mix(in srgb,var(--site-border) 70%,transparent) 49.9%,transparent 50.2%),
+ linear-gradient(24deg,transparent 49.6%,color-mix(in srgb,var(--site-border) 70%,transparent) 49.9%,transparent 50.2%);opacity:1}
+.stationery-stage .envelope-seal{top:45%;border:2px solid #ffffff4d;box-shadow:inset 0 0 0 3px #00000018,0 4px 14px #0004;font-size:20px}
+.stationery-stage .envelope-wordmark{position:absolute;bottom:18px;right:19px;font:700 8px 'DM Sans',sans-serif;letter-spacing:.14em;color:var(--site-muted);opacity:.7}
+.stationery-stage .studio-pen{position:absolute;left:8%;bottom:9%;width:9px;height:225px;transform:rotate(49deg);z-index:7;border-radius:4px;
+ background:linear-gradient(90deg,#192320,#5b695c 19%,#1c2727 38%,#90998a 48%,#263a34 62%,#151e1d 95%);
+ box-shadow:7px 8px 8px #131a1866,1px 0 0 #ffffffaa}
+.stationery-stage .studio-pen:before{content:'';position:absolute;top:-26px;left:0;width:9px;height:32px;border-radius:1px 1px 3px 3px;background:linear-gradient(90deg,#5d5134,#d1c59a,#70603b);clip-path:polygon(50% 0,100% 65%,100% 100%,0 100%,0 65%)}
+.stationery-stage .studio-pen:after{content:'';position:absolute;left:2px;top:33px;width:2px;height:72px;background:linear-gradient(#dad6ca,#8f9d91);border-radius:3px}
+.stationery-stage .studio-clip{position:absolute;left:15%;top:17%;width:29px;height:40px;border:5px solid #a8aeb0;border-radius:50% 50% 10px 10px;transform:rotate(-31deg);box-shadow:3px 8px 8px #0003;z-index:8}
+.stationery-stage .studio-clip:before{content:'';position:absolute;width:13px;height:26px;border:4px solid #767e7c;border-radius:12px;left:3px;top:4px}
+.stationery-stage .stationery-label{z-index:9;background:#ede9dfed;color:#26352d;box-shadow:0 2px 7px #0002}
+.stationery-stage.angle-b .paper-stack{transform:translate3d(var(--paper-x),var(--paper-y),10px) rotate(-3deg) rotateY(-15deg) scale(.99)}
+.stationery-stage.angle-b .biz-card-scene{transform:translate3d(var(--card-x),var(--card-y),35px) rotate(-4deg) rotateY(12deg)}
+.stationery-stage.angle-b .envelope-scene{transform:translate3d(var(--envelope-x),var(--envelope-y),20px) rotate(5deg) rotateY(-12deg)}
+.stationery-stage.motion .studio-desk-glow{animation:chromaLight 12s ease-in-out infinite alternate}
+@keyframes chromaLight{from{opacity:.5;transform:translateX(-4%)}to{opacity:1;transform:translateX(7%)}}
+
+/* SIGNAGE — architectural façade, physical extrusions, glass + plaster + brushed metal */
+.signage-stage.studio-architectural{
+ --facade-tilt:0deg;--facade-shift:0px;
+ margin:15px 28px 15px;min-height:505px;overflow:hidden;isolation:isolate;position:relative;
+ border-radius:17px;
+ background:linear-gradient(180deg,#89adc0 0%,#e2e7df 61%,#c5c1b5 62%,#bbb7aa 100%);
+ perspective:1400px;
+ box-shadow:inset 0 0 55px #0002,0 18px 54px #0003;
+ transition:background 1s ease,box-shadow 1s ease
+}
+.signage-stage.studio-architectural:before{z-index:0;height:24%;background:
+ repeating-linear-gradient(95deg,transparent 0 32px,#47463a24 34px 36px),
+ linear-gradient(#a5a49d,#d4d1c7);border-top:4px solid #e2ddd2;transform:perspective(250px) rotateX(21deg);transform-origin:top center;bottom:-15px}
+.signage-stage.studio-architectural .arch-cloud{position:absolute;z-index:0;border-radius:50%;pointer-events:none;background:#ffffff77;filter:blur(17px);width:270px;height:58px;left:5%;top:5%;transform:rotate(-9deg);box-shadow:70px -9px 40px #ffffff42,130px 12px 30px #ffffff2b}
+.signage-stage.studio-architectural .arch-cloud.two{width:200px;left:72%;top:13%;opacity:.65;filter:blur(20px)}
+.signage-stage.studio-architectural .signage-facade{
+ left:11%;right:11%;top:8%;height:80%;z-index:2;transform:rotateY(var(--facade-tilt)) translateX(var(--facade-shift));
+ background:
+ linear-gradient(102deg,#ffffff50 0,transparent 37%,#23211b1f 100%),
+ repeating-linear-gradient(0deg,#eee9df1b 0 23px,#625a4b1e 24px 25px),
+ repeating-linear-gradient(90deg,#dedbd2 0 70px,#c9c5b9 72px,#d7d3c9 73px);
+ border:1px solid #c3bdb3;border-bottom:0;
+ box-shadow:15px 5px 0 #959890,20px 13px 0 #777b75,21px 17px 33px #0005,0 -3px 24px #ffffff66 inset;
+ transition:transform .7s cubic-bezier(.2,.7,.3,1),filter 1s ease
+}
+.signage-stage.studio-architectural .signage-facade:after{content:'';position:absolute;top:8px;left:2%;right:2%;height:7px;border-top:2px solid #fff7;border-bottom:1px solid #8d8a7e60}
+.signage-stage.studio-architectural .signage-awning{top:2%;height:11px;background:linear-gradient(#ddd9cd,#aea99c 48%,#5c5d57);box-shadow:0 6px 9px #0004}
+.signage-stage.studio-architectural .signage-main{
+ top:15%;left:13%;right:13%;height:100px;z-index:4;position:absolute;
+ background:linear-gradient(125deg,#ffffff24 0%,transparent 31%,#0a0a0a14 76%,#ffffff16 100%),var(--site-primary);
+ border:2px solid color-mix(in srgb,var(--site-primary) 55%,#fff);
+ box-shadow:0 3px 0 color-mix(in srgb,var(--site-primary) 50%,#000),6px 14px 0 #30343461,10px 19px 20px #0004,0 0 1px #ffffff inset;
+ color:var(--button-text);transform:translateZ(8px);
+ transition:background .5s ease,box-shadow .75s ease,border-color .5s ease;
+}
+.signage-stage.studio-architectural .signage-main:before{content:'';position:absolute;inset:8px;border:1px solid #ffffff52;pointer-events:none}
+.signage-stage.studio-architectural .signage-main:after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 0%,#fff6 31%,transparent 38%,transparent 70%,#ffffff1c 78%,transparent 83%);opacity:.5;pointer-events:none;transition:opacity .4s}
+.signage-stage.studio-architectural .signage-main strong{font-family:Georgia,serif;text-shadow:0 1px 1px #0005;letter-spacing:.06em;font-weight:700}
+.signage-stage.studio-architectural .signage-main .brand-symbol{border:2px solid currentColor;box-shadow:0 1px 0 #ffffff6e,inset 0 1px 0 #0003}
+.signage-stage.studio-architectural .signage-glass{
+ left:19%;right:19%;top:53%;bottom:0;border:11px solid #535b57;border-bottom:0;
+ background:
+ linear-gradient(118deg,#fff5 0 9%,transparent 10% 32%,#fff3 34% 38%,transparent 39% 79%,#ffffff19 84%),
+ linear-gradient(#7895a2cc,#253d4fe8 70%,#415a68f0);
+ box-shadow:inset 3px 4px 22px #0008,0 0 0 2px #d7ddd75c,0 16px 22px #0003;
+}
+.signage-stage.studio-architectural .signage-glass:before{width:11px;background:linear-gradient(90deg,#303534,#bcc5c4 45%,#404944 100%);box-shadow:3px 0 8px #0003}
+.signage-stage.studio-architectural .signage-glass:after{content:'НАТАЛІЯ  ·  БУХГАЛТЕРСЬКИЙ СУПРОВІД';bottom:22px;color:#ffffffdc;letter-spacing:.09em;text-shadow:0 1px 2px #0007}
+.signage-stage.studio-architectural .glass-handle{position:absolute;left:53%;top:26%;height:49px;width:5px;border-radius:8px;background:linear-gradient(90deg,#303b3a,#e7ded1,#7c8785);box-shadow:2px 3px 6px #0007}
+.signage-stage.studio-architectural .glass-reflection{position:absolute;inset:0;background:linear-gradient(126deg,transparent 7%,#ffffff37 13%,transparent 19%,transparent 66%,#ffffff2e 76%,transparent 79%);pointer-events:none;opacity:.9;transform:translateX(0);transition:opacity .75s}
+.signage-stage.studio-architectural .signage-side{top:38%;right:-9%;width:9%;height:31%;z-index:4;transform:rotateY(-14deg);background:linear-gradient(115deg,#ffffff22,transparent),var(--site-surface);border:4px solid var(--site-primary);box-shadow:7px 8px 13px #0004,0 0 1px #fff inset}
+.signage-stage.studio-architectural .signage-side span{color:var(--site-primary)}
+.signage-stage.studio-architectural .arch-stoop{position:absolute;z-index:5;bottom:4%;left:27%;right:27%;height:29px;border-radius:2px;background:linear-gradient(#ebeae5,#a6a9a4 35%,#7b7f77 90%);box-shadow:9px 9px 10px #0004}
+.signage-stage.studio-architectural .arch-planter{position:absolute;z-index:7;bottom:6%;height:78px;width:52px;background:linear-gradient(110deg,#74716d,#332e2b 57%,#86817b);border-radius:9px 9px 20px 20px;box-shadow:5px 10px 12px #0005}
+.signage-stage.studio-architectural .arch-planter.left{left:14%}.signage-stage.studio-architectural .arch-planter.right{right:14%}
+.signage-stage.studio-architectural .arch-planter:before{content:'';position:absolute;left:-16px;bottom:56px;width:84px;height:82px;border-radius:48% 51% 30% 34%;background:radial-gradient(circle at 45% 25%,#6f8970,#284f42 65%,#18352a);box-shadow:7px 4px 12px #0005}
+.signage-stage.studio-architectural .arch-planter:after{content:'';position:absolute;width:2px;height:68px;background:#2a473c;left:22px;bottom:70px;box-shadow:12px 3px 0 #405f4e,-11px -3px 0 #385747}
+.signage-stage.studio-architectural .arch-light{position:absolute;top:3%;width:27px;height:27px;z-index:5;border-radius:50%;background:radial-gradient(circle at 45% 36%,#fff8,#999f9e 56%,#3b3f3a 73%);box-shadow:0 4px 11px #0003}
+.signage-stage.studio-architectural .arch-light.left{left:16%}.signage-stage.studio-architectural .arch-light.right{right:16%}
+.signage-stage.studio-architectural .arch-light:after{content:'';position:absolute;left:5px;top:20px;width:16px;height:20px;border-radius:0 0 50% 50%;background:linear-gradient(#c2baa288,transparent);filter:blur(3px)}
+/* finishes */
+.signage-stage.studio-architectural.material-matte .signage-main{background:linear-gradient(115deg,#ffffff1b,transparent 36%,#00000016),var(--site-primary)}
+.signage-stage.studio-architectural.material-metal .signage-main{
+ background:linear-gradient(125deg,#ffffff80,transparent 24%,#00000029 41%,#ffffff64 65%,transparent 82%),
+ repeating-linear-gradient(0deg,#ffffff0b 0 1px,#0000000a 1px 2px),var(--site-primary);
+ border-color:#dee0d9;box-shadow:0 2px 0 #f5f2e6,4px 8px 0 #646e6a,10px 15px 22px #0005,inset 0 1px 2px #ffffffa8
+}
+.signage-stage.studio-architectural.material-glass .signage-main{
+ background:linear-gradient(128deg,#ffffff8a,transparent 26%,#0a11202b 50%,#ffffff8b 85%),
+ color-mix(in srgb,var(--site-primary) 63%,transparent);
+ border-color:#ffffffb8;backdrop-filter:blur(7px) saturate(1.1);
+ box-shadow:0 0 0 4px #ffffff36 inset,0 6px 0 #57766c7c,8px 15px 25px #0006
+}
+.signage-stage.studio-architectural.material-glass .signage-main strong,
+.signage-stage.studio-architectural.material-glass .signage-main span{color:var(--site-text);text-shadow:0 2px 4px #0006}
+.signage-stage.studio-architectural.material-glass .signage-main .brand-symbol{color:var(--site-text)}
+/* night scene and controlled light pools */
+.signage-stage.studio-architectural.night{
+ background:linear-gradient(180deg,#101b2e 0%,#253249 58%,#30353b 61%,#434448 100%);
+ box-shadow:inset 0 0 100px #050b1b80,0 17px 60px #0006
+}
+.signage-stage.studio-architectural.night .arch-cloud{opacity:.13}
+.signage-stage.studio-architectural.night .signage-facade{filter:brightness(.54) saturate(.75)}
+.signage-stage.studio-architectural.night .signage-main{
+ filter:brightness(1.55);z-index:7;
+ box-shadow:0 0 6px 2px color-mix(in srgb,var(--site-accent) 62%,#ffffff),
+ 0 0 44px color-mix(in srgb,var(--site-accent) 42%,transparent),
+ 0 0 110px color-mix(in srgb,var(--site-accent) 26%,transparent),8px 17px 26px #000b
+}
+.signage-stage.studio-architectural.night .signage-glass{filter:brightness(.72)}
+.signage-stage.studio-architectural.night .arch-light{
+ box-shadow:0 0 11px 4px #fff3b2b0,0 0 48px 12px #ffe7a85c,0 0 90px #fff4cc50;
+ background:radial-gradient(circle,#fffad9 10%,#f5dc9a 60%,#a59d86 78%)
+}
+.signage-stage.studio-architectural.night .arch-planter{filter:brightness(.5)}
+.signage-stage.studio-architectural.night:after{background:linear-gradient(90deg,#050b1655,#03071818 35%,#050b1640);opacity:1;mix-blend-mode:multiply;pointer-events:none;z-index:0}
+.signage-stage.studio-architectural.motion:not(.night) .glass-reflection{animation:chromaReflection 11s ease-in-out infinite alternate}
+@keyframes chromaReflection{0%{opacity:.45;transform:translateX(-8%)}100%{opacity:.95;transform:translateX(8%)}}
+.material-lab-note{margin-top:0}
+@media(max-width:800px){
+ .material-lab-tools{padding:12px 14px 0;gap:8px}
+ .material-hint{margin-left:0}
+ .material-lab-note{margin:0 14px 16px}
+ .stationery-stage.studio-3d{min-height:440px;margin:13px}
+ .signage-stage.studio-architectural{min-height:390px;margin:13px}
+ .stationery-stage .paper-stack{left:15%;width:220px;height:330px}
+ .stationery-stage .biz-card-scene{left:52%;width:205px;height:128px}
+ .stationery-stage .envelope-scene{left:49%;width:239px;height:135px}
+ .signage-stage.studio-architectural .signage-main{height:81px}
+}
+@media(max-width:520px){
+ .material-segment button{padding:7px 9px;font-size:9px}
+ .material-hint{flex-basis:100%}
+ .stationery-stage.studio-3d{min-height:350px}
+ .stationery-stage .paper-stack{left:8%;top:9%;width:155px;height:240px;padding:15px}
+ .stationery-stage .paper-crest{font-size:25px}.stationery-stage .paper-heading{font-size:7px}
+ .stationery-stage .paper-sub{font-size:6px}.stationery-stage .paper-divider{margin:9px 0}
+ .stationery-stage .paper-lines{margin-top:12px;gap:6px}
+ .stationery-stage .letter-detail{bottom:19px;left:13px;right:13px;font-size:5px}
+ .stationery-stage .letter-stamp{bottom:46px;font-size:7px}
+ .stationery-stage .biz-card-scene{top:18%;left:47%;width:160px;height:108px;padding:13px}
+ .stationery-stage .biz-card-scene strong{font-size:11px}.stationery-stage .biz-card-scene small{font-size:6px}
+ .stationery-stage .envelope-scene{top:61%;left:43%;width:175px;height:94px}
+ .stationery-stage .studio-pen{bottom:7%;height:125px;left:7%}.stationery-stage .studio-clip{width:19px;height:28px;border-width:3px;top:11%}
+ .stationery-stage .stationery-label{font-size:7px;padding:6px}
+ .signage-stage.studio-architectural{min-height:330px}
+ .signage-stage.studio-architectural .signage-facade{left:4%;right:4%;top:8%}
+ .signage-stage.studio-architectural .signage-main{left:6%;right:6%;height:70px;top:17%}
+ .signage-stage.studio-architectural .signage-main strong{font-size:19px}
+ .signage-stage.studio-architectural .signage-main span{font-size:6px}
+ .signage-stage.studio-architectural .signage-main .brand-symbol{font-size:25px;width:35px;height:35px}
+ .signage-stage.studio-architectural .arch-planter{width:33px;height:55px;bottom:6%}
+ .signage-stage.studio-architectural .arch-planter:before{left:-9px;width:50px;height:48px;bottom:38px}
+ .signage-stage.studio-architectural .arch-planter.left{left:4%}.signage-stage.studio-architectural .arch-planter.right{right:4%}
+ .signage-stage.studio-architectural .arch-stoop{bottom:3%}
+}
+@media(prefers-reduced-motion:reduce){
+ .stationery-stage.studio-3d *, .signage-stage.studio-architectural *{animation:none!important;transition:none!important}
+ .stationery-stage .studio-desk-glow{animation:none!important}
+}
