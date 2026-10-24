@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b1018">
-<title>CHROMA — Premium Material Lab & Palette Studio</title>
-<meta name="description" content="CHROMA — преміальна галерея кольорових палітр із фотокартками, HEX-кодами та живим переглядом на канцелярії, сайті й вивісці.">
+<title>CHROMA — Color Playground · Відчуй колір</title>
+<meta name="description" content="CHROMA — digital color playground. 17 палітр, живі макети, HEX-редактор, CSS/JSON експорт.">
 <style>
 :root {color-scheme:dark;--ui:#0c1119;--panel:#121924;--panel-2:#171f2c;--line:#29313f;--ink:#f3f6fb;--sub:#8e9bad;--brand:#a4f1d2;--shadow:0 28px 70px #03080e70}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--ui);color:var(--ink)}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid var(--brand);outline-offset:3px}button:disabled{cursor:not-allowed;opacity:.6}input{min-width:0}::selection{background:#87e9c5;color:#101820}
@@ -26,17 +26,47 @@
 <link rel="stylesheet" href="assets/editorial-gallery.css?v=3.0">
 <link rel="stylesheet" href="assets/material-lab.css?v=4.0">
 <link rel="stylesheet" href="assets/scene-routing.css?v=4.1">
+<link rel="stylesheet" href="chroma-v2.css?v=2.0">
 </head>
 <body>
 <div class="app">
 <header class="topbar">
  <div class="brand" aria-label="CHROMA, студія палітр"><div class="logo-mark"><span></span><span></span><span></span><span></span></div><div><div class="brand-name">CHROMA</div><div class="brand-meta">PALETTE STUDIO</div></div></div>
- <div class="header-middle"><span class="live-dot"></span> Інтерактивний конструктор · зміни в реальному часі</div>
- <div class="header-actions"><button type="button" id="copyCssTop" class="btn"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></svg> Копіювати CSS</button><button type="button" id="downloadJson" class="btn btn-primary"><svg viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4"></path><path d="M4 16v4h16v-4"></path></svg> Експорт JSON <span class="mobile-label" aria-hidden="true"></span></button></div>
+ <nav class="premium-nav" aria-label="Навігація"><a href="#home">Студія</a><a href="#paletteSection">Палітри</a><a href="#liveSection">Живий перегляд</a></nav>
+ <div class="header-actions"><button id="openEditor" class="btn" type="button" data-open-editor aria-label="Відкрити редактор кольорів"><span class="edit-ico">◉</span> <span class="btn-label">Редактор кольорів</span></button><button type="button" id="copyCssTop" class="btn"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></svg> Копіювати CSS</button><button type="button" id="downloadJson" class="btn btn-primary"><svg viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4"></path><path d="M4 16v4h16v-4"></path></svg> Експорт JSON <span class="mobile-label" aria-hidden="true"></span></button></div>
 </header>
+
+<section class="hero-showcase" id="home" aria-label="CHROMA — творча студія кольору">
+  <div class="hero-container">
+    <div class="hero-copy">
+      <div class="hero-index">Нова ера колірних рішень &nbsp; / &nbsp; CHROMA 02</div>
+      <h1 class="hero-display">Колір.<br><span class="serif">Настрій.</span><br><span class="outline">Характер.</span></h1>
+      <p class="hero-paragraph">Не обирай кольори навмання. Відчуй, як вони працюють разом. Досліджуй палітри, змінюй кожен відтінок і відразу дивись, як оживає твій дизайн.</p>
+      <div class="hero-buttons">
+        <a class="explore-btn" href="#paletteSection">Дослідити палітри <span>↗</span></a>
+        <a class="underlink" href="#liveSection">Дивитись наживо ↘</a>
+      </div>
+      <div class="hero-micro"><span class="pulse"></span><span>Зараз у фокусі:</span><strong id="heroPaletteName">Midnight Rose</strong></div>
+    </div>
+    <div class="hero-sculpture" id="heroVisual" aria-hidden="true">
+      <div class="sculpture-grid"></div>
+      <div class="sculpture-halo"><div class="orbit-track"></div></div>
+      <div class="color-orb"></div>
+      <div class="orb-cutline"></div>
+      <div class="orb-small"></div>
+      <span class="art-label art-label-top">FORM / LIGHT / COLOR</span>
+      <span class="art-label art-label-bottom">CURATED BY CHROMA ↗</span>
+      <div class="art-card primary"><div class="card-top"><span>01 — PRIMARY</span><span>●</span></div><div class="card-sample"></div><div class="sample-hex" id="heroAccentHex">#FF557C</div></div>
+      <div class="art-card secondary"><div class="card-top"><span>02 — ACCENT</span><span>↗</span></div><div class="card-sample"></div><div class="sample-hex" id="heroSecondHex">#F7BC63</div></div>
+    </div>
+  </div>
+  <div class="hero-bottom"><span>DESIGNED TO FEEL DIFFERENT</span><div class="hero-swatches" id="heroSwatches" aria-label="Основні кольори палітри"></div><span>SCROLL TO EXPLORE &nbsp; ↓</span></div>
+</section>
+<div class="editor-backdrop" id="editorBackdrop" aria-hidden="true"></div>
+
 <div class="layout">
- <aside class="sidebar left-panel" aria-label="Готові палітри">
-  <div class="side-head"><div class="eyebrow">01 / Бібліотека кольорів</div><h2>Знайди свій стиль.</h2><p>Обери поєднання кольорів, яке найкраще передає характер твого проєкту.</p></div>
+ <aside id="paletteSection" class="sidebar left-panel" aria-label="Готові палітри">
+  <div class="side-head"><div class="eyebrow">01 / Колекція відтінків</div><h2>Кожен відтінок.<br><i>Твій характер.</i></h2><p>Від спокійного мінімалізму до сміливого контрасту. Обирай настрій — і вся сцена зміниться разом із ним.</p></div>
   <div class="sidebar-scroll">
    <div class="filterbar" role="group" aria-label="Фільтр палітр"><button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">Усі палітри</button><button type="button" class="filter-btn" data-filter="favorites" aria-pressed="false">★ Улюблені</button></div>
    <div class="section-line"><span>ГОТОВІ ПРЕСЕТИ</span><span id="presetCount">12 палітр</span></div>
@@ -44,7 +74,7 @@
    <div class="note-box"><span class="info">✦</span><div><strong>Зроби палітру власною</strong><p>Кожен колір можна змінити вручну праворуч. Твої налаштування збережуться в цьому браузері.</p></div></div>
   </div>
  </aside>
- <main class="workspace">
+ <main class="workspace" id="liveSection"><div class="section-heading"><div class="eyebrow">02 / Тест-драйв кольору</div><h2>Не уявляй.<br><i>Побач.</i></h2><p>Твоя палітра, але вже в дії. Перемикай макети й перевіряй, як кольори поводяться на сайті, канцелярії та вивісці.</p></div>
   <div class="workspace-top"><div><div class="workspace-title">Живий перегляд</div><div class="workspace-sub">Переглядай брендові носії: канцелярію, сайт, вивіску та порівняння</div></div><div class="workspace-controls"><div class="view-tabs" role="group" aria-label="Тип макета"><button class="active" type="button" data-view="landing" aria-pressed="true">Лендінг</button><button type="button" data-view="dashboard" aria-pressed="false">Дашборд</button><button type="button" data-view="shop" aria-pressed="false">Магазин</button></div><div class="device-tabs" role="group" aria-label="Розмір екрана"><button type="button" class="active" data-device="desktop" aria-label="Десктоп" title="Десктоп" aria-pressed="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8m-4-4v4"></path></svg></button><button type="button" data-device="mobile" aria-label="Телефон" title="Телефон" aria-pressed="false"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg></button></div></div></div>
   <div class="stage" id="stage"><div class="preview-frame" id="previewFrame"><div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url" id="browserUrl">preview.your-website.ua</span><span class="browser-end">↗</span></div>
    <div class="preview-site" id="livePreview">
@@ -57,8 +87,16 @@
     <div class="site-view" data-site="shop"><nav class="site-nav"><div class="site-brand">atelier<b>.</b></div><div class="site-nav-links"><span>Колекції</span><span>Каталог</span><span>Історія</span></div><button class="site-button" type="button" data-demo>Кошик (0) ↗</button></nav><section class="shop-hero"><div class="shop-header"><div class="kicker">НОВА КОЛЕКЦІЯ / 2026</div><h1>Речі, що мають характер.</h1><p>Продумані форми, спокійні лінії та трохи сміливості в кожній деталі.</p><button class="site-button" type="button" data-demo>Переглянути колекцію →</button></div><div class="product-art"><div class="vase"></div></div></section><section class="shop-products"><div class="site-section-top"><h2>Обране для тебе</h2><span class="tiny-link">Переглянути все →</span></div><div class="product-grid"><div class="product-card"><div class="prod-visual"><div class="prod-shape"></div></div><div class="product-meta"><strong>Ваза Form</strong><span>₴ 1 690</span></div><small>Декор · Колекція 01</small></div><div class="product-card"><div class="prod-visual"><div class="prod-shape"></div></div><div class="product-meta"><strong>Світильник Aura</strong><span>₴ 2 450</span></div><small>Освітлення · Колекція 02</small></div><div class="product-card"><div class="prod-visual"><div class="prod-shape"></div></div><div class="product-meta"><strong>Чаша Line</strong><span>₴ 980</span></div><small>Декор · Колекція 03</small></div></div></section></div>
    </div></div></div>
  </main>
- <aside class="sidebar right-panel" aria-label="Налаштування палітри"><div class="side-head"><div class="eyebrow">02 / Твої налаштування</div><h2>Відтінки під контролем.</h2><p>Натисни на кольоровий квадрат або введи HEX-код.</p></div><div class="sidebar-scroll"><div class="editor-top"><div class="current-label">АКТИВНА ПАЛІТРА</div><div class="current-palette-name" id="paletteName">Midnight Rose</div><div class="current-description" id="paletteDescription">Виразний темний інтерфейс з теплим акцентом.</div><div class="big-swatches" id="bigSwatches"></div></div><div class="color-group"><div class="field-title"><strong>Кольори інтерфейсу</strong><small>HEX</small></div><div id="colorFields" class="color-fields"></div><div class="quick-actions"><button class="btn" id="resetColors" type="button">↺ Скинути</button><button class="btn" id="copyCss" type="button">⧉ Копіювати CSS</button></div></div><div class="check-panel"><div class="field-title"><strong>Контрастність</strong><small>WCAG AA</small></div><div class="contrast-item"><div><div class="name">Текст / фон</div><div class="small">Читабельність основного тексту</div></div><span id="contrastText" class="contrast-status">—</span></div><div class="contrast-item"><div><div class="name">Текст / картка</div><div class="small">Читабельність на поверхнях</div></div><span id="contrastSurface" class="contrast-status">—</span></div><div class="contrast-item"><div><div class="name">Текст кнопки</div><div class="small">Автоматично світлий або темний</div></div><span id="contrastButton" class="contrast-status">—</span></div><p class="contrast-advice">✓ Для звичайного тексту орієнтир — контраст щонайменше 4.5:1. Це підказка, а не повна перевірка доступності.</p></div></div><div class="footnote">CHROMA · Твоя палітра автоматично зберігається локально. Готові пресети легко замінити на власний набір у коді.</div></aside>
+ <aside class="sidebar right-panel" aria-label="Налаштування палітри" aria-hidden="true" inert><div class="drawer-bar"><span class="drawer-label">CHROMA / НАЛАШТУВАННЯ</span><button id="drawerClose" class="drawer-close" type="button" aria-label="Закрити редактор">×</button></div><div class="side-head"><div class="eyebrow">02 / Твої налаштування</div><h2>Відтінки під контролем.</h2><p>Натисни на кольоровий квадрат або введи HEX-код.</p></div><div class="sidebar-scroll"><div class="editor-top"><div class="current-label">АКТИВНА ПАЛІТРА</div><div class="current-palette-name" id="paletteName">Midnight Rose</div><div class="current-description" id="paletteDescription">Виразний темний інтерфейс з теплим акцентом.</div><div class="big-swatches" id="bigSwatches"></div></div><div class="color-group"><div class="field-title"><strong>Кольори інтерфейсу</strong><small>HEX</small></div><div id="colorFields" class="color-fields"></div><div class="quick-actions"><button class="btn" id="resetColors" type="button">↺ Скинути</button><button class="btn" id="copyCss" type="button">⧉ Копіювати CSS</button></div></div><div class="check-panel"><div class="field-title"><strong>Контрастність</strong><small>WCAG AA</small></div><div class="contrast-item"><div><div class="name">Текст / фон</div><div class="small">Читабельність основного тексту</div></div><span id="contrastText" class="contrast-status">—</span></div><div class="contrast-item"><div><div class="name">Текст / картка</div><div class="small">Читабельність на поверхнях</div></div><span id="contrastSurface" class="contrast-status">—</span></div><div class="contrast-item"><div><div class="name">Текст кнопки</div><div class="small">Автоматично світлий або темний</div></div><span id="contrastButton" class="contrast-status">—</span></div><p class="contrast-advice">✓ Для звичайного тексту орієнтир — контраст щонайменше 4.5:1. Це підказка, а не повна перевірка доступності.</p></div></div><div class="footnote">CHROMA · Твоя палітра автоматично зберігається локально. Готові пресети легко замінити на власний набір у коді.</div></aside>
 </div></div>
+
+<div class="palette-dock" role="region" aria-label="Активна палітра та швидкі дії">
+  <div class="dock-state"><i class="dock-live-dot"></i><div class="dock-copy"><small>АКТИВНА ПАЛІТРА</small><strong id="dockTitle">Midnight Rose</strong></div></div>
+  <div class="dock-swatches" id="dockSwatches" aria-hidden="true"></div>
+  <button class="dock-edit" type="button" data-open-editor>Налаштувати ↗</button>
+  <button class="dock-action" type="button" data-scroll-preview>Подивитись ↗</button>
+</div>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 'use strict';
@@ -116,5 +154,6 @@ restore();renderPresets();renderEditor();applyColors();
 <script src="assets/editorial-gallery.js?v=3.0"></script>
 <script src="assets/material-lab.js?v=4.0"></script>
 <script src="assets/scene-routing.js?v=4.1"></script>
+<script src="chroma-v2.js?v=2.0"></script>
 </body>
 </html>
