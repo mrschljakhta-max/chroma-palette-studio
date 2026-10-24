@@ -110,6 +110,7 @@
     });
   });
   if (drawer){ drawer.setAttribute('aria-hidden','true'); drawer.setAttribute('inert',''); }
+  if (!new URLSearchParams(window.location.search).has('scene') && typeof switchView === 'function') { switchView('overview'); }
   var logo=document.querySelector('.brand');
   if(logo)logo.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});});
 })();
