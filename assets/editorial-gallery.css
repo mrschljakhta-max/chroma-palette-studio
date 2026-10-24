@@ -1,0 +1,59 @@
+/* CHROMA — Editorial botanical palette gallery v3
+   Premium 5-swatch cards: photo / HEX overlays / selection / live preview */
+.app.gallery-mode .layout{grid-template-columns:minmax(0,1fr);max-height:calc(100vh - 72px)}
+.app.gallery-mode .layout>.sidebar{display:none}
+.app.gallery-mode .workspace{grid-column:1;min-width:0;background:radial-gradient(ellipse at 0% 15%,#372a3359,transparent 42%),radial-gradient(ellipse at 95% 90%,#29342d4f,transparent 45%),#181619}
+.app.gallery-mode .workspace-top{background:#18171b;border-bottom:1px solid #ffffff12;padding:15px 25px}
+.app.gallery-mode .workspace-title{font-family:Georgia,serif;font-size:18px;font-weight:400;letter-spacing:.02em}
+.app.gallery-mode .workspace-sub{font-size:11px}
+.app.gallery-mode .device-tabs,.app.gallery-mode #legacyDemoSelect,.app.gallery-mode #premiumActions,.app.gallery-mode #premiumUtilityBar{display:none!important}
+.app.gallery-mode .stage{padding:0;display:block;background:transparent;min-height:0}
+.app.gallery-mode .preview-frame{width:100%!important;max-width:none;min-width:0;border:none;box-shadow:none;border-radius:0!important;background:transparent}
+.app.gallery-mode .browser-bar{display:none}
+.app.gallery-mode .preview-site{min-height:0;background:#181619!important;color:#f2ebe9}
+.view-tabs button[data-view="gallery"]{font-size:11px;color:#d9bcb5}
+.view-tabs button[data-view="gallery"].active{background:#eeddd4;color:#281b22}
+.chroma-gallery{min-height:100%;color:#f1e9e5;background:radial-gradient(ellipse at 5% 0%,#4c36433b,transparent 35%),radial-gradient(ellipse at 100% 40%,#3e2d393b,transparent 36%),#19161a;padding:34px clamp(18px,3vw,52px) 28px;isolation:isolate;position:relative;overflow:hidden}
+.chroma-gallery:before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.18;background-image:radial-gradient(#ffffff27 .6px,transparent .6px);background-size:6px 6px;mix-blend-mode:screen}
+.gallery-overline{display:flex;gap:19px;justify-content:center;align-items:center;font-size:10px;letter-spacing:.33em;color:#b09b9a;font-weight:700}
+.gallery-overline:before,.gallery-overline:after{content:'';height:1px;width:58px;background:#9f8c8970}
+.gallery-title{font:400 clamp(43px,6vw,78px)/1.02 Georgia,'Times New Roman',serif;letter-spacing:-.055em;text-align:center;margin:17px 0 13px;color:#f4edeb}
+.gallery-intro{max-width:660px;margin:0 auto;text-align:center;font-size:13px;line-height:1.8;color:#baaaa7}
+.gallery-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:start;gap:clamp(12px,1.4vw,28px);max-width:1660px;margin:29px auto 10px}
+.gallery-card{min-width:0;text-align:center;position:relative}
+.gallery-choice{display:block;width:100%;padding:0;color:inherit;background:none;border:0;text-align:inherit;cursor:pointer;overflow:visible}
+.gallery-visual{aspect-ratio: .66;min-height:325px;max-height:490px;border-radius:14px;position:relative;overflow:hidden;border:1px solid #ffffff21;box-shadow:0 18px 44px #0006,0 0 0 1px #ffffff08;display:flex;align-items:center;justify-content:center;background:var(--gallery-fallback,#443d43);isolation:isolate;transition:transform .4s cubic-bezier(.2,.75,.3,1),border-color .28s,box-shadow .3s}
+.gallery-photo{position:absolute;inset:0;background-image:linear-gradient(180deg,#05050510 0%,#05050510 55%,#0505054b 100%),var(--gallery-image);background-position:center;background-size:cover;filter:saturate(.8) brightness(.72);opacity:.91;transform:scale(1.04);transition:transform .65s ease,filter .5s ease}
+.gallery-visual:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#140e180c,#140d1823 50%,#0e090e42);pointer-events:none}
+.gallery-choice:hover .gallery-visual,.gallery-choice:focus-visible .gallery-visual{transform:translateY(-6px);border-color:#e3c6b1aa;box-shadow:0 27px 62px #0009,0 0 0 1px #f4e4dd55}
+.gallery-choice:hover .gallery-photo,.gallery-choice:focus-visible .gallery-photo{transform:scale(1.12);filter:saturate(.96) brightness(.83)}
+.gallery-choice:focus-visible{outline:3px solid #ccefdc;outline-offset:5px;border-radius:15px}
+.gallery-card.is-active .gallery-visual{border-color:#d6d1be;box-shadow:0 17px 54px #0008,0 0 0 2px #c8dac24a}
+.gallery-swatches{position:relative;z-index:2;width:72%;min-width:0;overflow:hidden;border-radius:4px;box-shadow:0 16px 42px #05040780,0 0 0 1px #ffffff4a;display:flex;flex-direction:column}
+.gallery-swatch{background:var(--swatch);color:var(--on-swatch);height:clamp(37px,3.55vw,58px);min-height:36px;display:flex;align-items:center;justify-content:flex-start;padding-left:clamp(8px,1.2vw,18px);text-align:left;font:700 clamp(9px,.83vw,12px)/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.035em}
+.gallery-swatch+.gallery-swatch{border-top:1px solid #ffffff16}
+.gallery-card-name{font:400 clamp(17px,1.6vw,26px)/1.2 Georgia,'Times New Roman',serif;letter-spacing:.12em;text-transform:uppercase;margin:19px 0 6px;color:#f0e7e4}
+.gallery-card-description{font-size:clamp(10px,.86vw,12px);line-height:1.6;color:#a99a99;margin:0 auto;max-width:240px;min-height:40px}
+.gallery-arrow{width:37px;height:37px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #cdb6aa60;color:#e8d9d2;border-radius:50%;margin-top:10px;font-size:18px;font-weight:400;transition:background .25s,transform .25s,border-color .25s}
+.gallery-choice:hover .gallery-arrow,.gallery-choice:focus-visible .gallery-arrow{transform:translateX(4px);background:#ffffff12;border-color:#e7d4c1}
+.gallery-selected{display:block;font-size:10px;color:#b7e4ca;letter-spacing:.08em;margin:8px 0 0;min-height:14px}
+.gallery-credit{font-size:9px;color:#a59796;display:inline-block;margin-top:5px;text-decoration:underline;text-underline-offset:3px}
+.gallery-credit:hover{color:#f3e7df}
+.gallery-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:1660px;margin:26px auto 0;border-top:1px solid #ffffff1c;padding:18px 0 0;color:#8c7c7d;font-size:9px;letter-spacing:.16em;text-transform:uppercase}
+.gallery-bottom strong{font-weight:500;color:#cbb8b4}
+.gallery-note{border:1px solid #ffffff20;max-width:760px;margin:14px auto 0;padding:12px 15px;text-align:center;color:#baa9a4;font-size:10px;line-height:1.6;border-radius:8px;background:#ffffff08}
+.gallery-note b{color:#e5ded5;font-weight:600}
+@media(max-width:1250px){.gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr));max-width:960px;gap:20px}.gallery-visual{max-height:440px}.gallery-swatch{height:52px;font-size:11px}}
+@media(max-width:790px){.app.gallery-mode .workspace-top{padding:13px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.chroma-gallery{padding:29px 18px}.gallery-visual{min-height:295px}.gallery-title{font-size:46px}.gallery-card-description{min-height:0}.gallery-bottom{font-size:8px;letter-spacing:.05em}.gallery-swatch{height:44px}}
+@media(max-width:470px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.gallery-visual{min-height:260px;max-height:320px;border-radius:10px}.gallery-swatches{width:81%}.gallery-swatch{min-height:29px;height:33px;padding-left:8px;font-size:9px}.gallery-card-name{font-size:15px;letter-spacing:.06em}.gallery-card-description{font-size:10px}.gallery-arrow{margin-top:8px;width:33px;height:33px}.gallery-title{font-size:40px}.gallery-overline{font-size:8px}.gallery-bottom{flex-wrap:wrap}.gallery-bottom span:last-child{display:none}}
+@media(prefers-reduced-motion:reduce){.gallery-photo,.gallery-visual,.gallery-arrow{transition:none!important}}
+
+/* Photo-backed mini previews in the existing left preset library */
+.preset-preview.editorial-mini{display:grid;place-items:center;padding:4px;background-repeat:no-repeat!important;position:relative;isolation:isolate}
+.preset-preview.editorial-mini:before,.preset-preview.editorial-mini:after{display:none!important}
+.preset-preview.editorial-mini .mini-ramp{display:flex;flex-direction:column;width:44%;height:90%;box-shadow:0 4px 12px #0008;border-radius:2px;overflow:hidden}
+.preset-preview.editorial-mini .mini-ramp span{flex:1;min-height:0}
+.gallery-photo{background-position:var(--gallery-position,center)}
+/* More reliable card photo rendering on tablet widths */
+@media(min-width:1260px){.app.gallery-mode .stage{overflow-y:auto}.app.gallery-mode .preview-frame{max-width:none}}
+@media(max-width:720px){.app.gallery-mode .layout{max-height:none}.app.gallery-mode .workspace{min-height:calc(100vh - 65px)}.app.gallery-mode .stage{overflow:visible}.gallery-grid{max-width:620px}}
